@@ -1,0 +1,111 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x55c3af22f9a0 .scope module, "ALU_tb" "ALU_tb" 2 3;
+ .timescale -9 -12;
+v0x55c3af259610_0 .net "data_bus", 7 0, L_0x55c3af259b10;  1 drivers
+v0x55c3af2596f0_0 .var "ena", 0 0;
+v0x55c3af259790_0 .var "opcode", 7 0;
+v0x55c3af259830_0 .var "oper0", 7 0;
+v0x55c3af259900_0 .var "oper1", 7 0;
+S_0x55c3af23de30 .scope module, "uut" "alu" 2 12, 3 7 0, S_0x55c3af22f9a0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "ena";
+    .port_info 1 /INPUT 8 "opcode";
+    .port_info 2 /INPUT 8 "oper0";
+    .port_info 3 /INPUT 8 "oper1";
+    .port_info 4 /INOUT 8 "data_bus";
+L_0x7fd1538d0018 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_0x55c3af2599d0 .functor XNOR 1, v0x55c3af2596f0_0, L_0x7fd1538d0018, C4<0>, C4<0>;
+L_0x55c3af259e30 .functor AND 8, v0x55c3af259900_0, v0x55c3af259830_0, C4<11111111>, C4<11111111>;
+L_0x55c3af25a370 .functor OR 8, v0x55c3af259900_0, v0x55c3af259830_0, C4<00000000>, C4<00000000>;
+L_0x55c3af25a580 .functor XOR 8, v0x55c3af259900_0, v0x55c3af259830_0, C4<00000000>, C4<00000000>;
+v0x55c3af2292e0_0 .net/2u *"_ivl_0", 0 0, L_0x7fd1538d0018;  1 drivers
+v0x55c3af257da0_0 .net *"_ivl_10", 0 0, L_0x55c3af259c50;  1 drivers
+v0x55c3af257e60_0 .net *"_ivl_12", 7 0, L_0x55c3af259d90;  1 drivers
+L_0x7fd1538d00a8 .functor BUFT 1, C4<00001000>, C4<0>, C4<0>, C4<0>;
+v0x55c3af257f20_0 .net/2u *"_ivl_14", 7 0, L_0x7fd1538d00a8;  1 drivers
+v0x55c3af258000_0 .net *"_ivl_16", 0 0, L_0x55c3af259f40;  1 drivers
+v0x55c3af258110_0 .net *"_ivl_18", 7 0, L_0x55c3af25a060;  1 drivers
+v0x55c3af2581f0_0 .net *"_ivl_2", 0 0, L_0x55c3af2599d0;  1 drivers
+L_0x7fd1538d00f0 .functor BUFT 1, C4<00001001>, C4<0>, C4<0>, C4<0>;
+v0x55c3af2582b0_0 .net/2u *"_ivl_20", 7 0, L_0x7fd1538d00f0;  1 drivers
+v0x55c3af258390_0 .net *"_ivl_22", 0 0, L_0x55c3af25a130;  1 drivers
+v0x55c3af258450_0 .net *"_ivl_24", 7 0, L_0x55c3af259e30;  1 drivers
+L_0x7fd1538d0138 .functor BUFT 1, C4<00001010>, C4<0>, C4<0>, C4<0>;
+v0x55c3af258530_0 .net/2u *"_ivl_26", 7 0, L_0x7fd1538d0138;  1 drivers
+v0x55c3af258610_0 .net *"_ivl_28", 0 0, L_0x55c3af25a2d0;  1 drivers
+v0x55c3af2586d0_0 .net *"_ivl_30", 7 0, L_0x55c3af25a370;  1 drivers
+L_0x7fd1538d0180 .functor BUFT 1, C4<00001011>, C4<0>, C4<0>, C4<0>;
+v0x55c3af2587b0_0 .net/2u *"_ivl_32", 7 0, L_0x7fd1538d0180;  1 drivers
+v0x55c3af258890_0 .net *"_ivl_34", 0 0, L_0x55c3af25a410;  1 drivers
+v0x55c3af258950_0 .net *"_ivl_36", 7 0, L_0x55c3af25a580;  1 drivers
+L_0x7fd1538d01c8 .functor BUFT 1, C4<00000000>, C4<0>, C4<0>, C4<0>;
+v0x55c3af258a30_0 .net/2u *"_ivl_38", 7 0, L_0x7fd1538d01c8;  1 drivers
+o0x7fd153c36348 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+; Elide local net with no drivers, v0x55c3af258b10_0 name=_ivl_4
+v0x55c3af258bf0_0 .net *"_ivl_40", 7 0, L_0x55c3af25a650;  1 drivers
+v0x55c3af258cd0_0 .net *"_ivl_42", 7 0, L_0x55c3af25a810;  1 drivers
+v0x55c3af258db0_0 .net *"_ivl_44", 7 0, L_0x55c3af25a9b0;  1 drivers
+v0x55c3af258e90_0 .net *"_ivl_46", 7 0, L_0x55c3af25ab40;  1 drivers
+L_0x7fd1538d0060 .functor BUFT 1, C4<00000111>, C4<0>, C4<0>, C4<0>;
+v0x55c3af258f70_0 .net/2u *"_ivl_8", 7 0, L_0x7fd1538d0060;  1 drivers
+v0x55c3af259050_0 .net "data_bus", 7 0, L_0x55c3af259b10;  alias, 1 drivers
+v0x55c3af259130_0 .net "ena", 0 0, v0x55c3af2596f0_0;  1 drivers
+v0x55c3af2591f0_0 .net "opcode", 7 0, v0x55c3af259790_0;  1 drivers
+v0x55c3af2592d0_0 .net "oper0", 7 0, v0x55c3af259830_0;  1 drivers
+v0x55c3af2593b0_0 .net "oper1", 7 0, v0x55c3af259900_0;  1 drivers
+v0x55c3af259490_0 .net "temp", 7 0, L_0x55c3af25ad40;  1 drivers
+L_0x55c3af259b10 .functor MUXZ 8, o0x7fd153c36348, L_0x55c3af25ad40, L_0x55c3af2599d0, C4<>;
+L_0x55c3af259c50 .cmp/eq 8, v0x55c3af259790_0, L_0x7fd1538d0060;
+L_0x55c3af259d90 .arith/sum 8, v0x55c3af259900_0, v0x55c3af259830_0;
+L_0x55c3af259f40 .cmp/eq 8, v0x55c3af259790_0, L_0x7fd1538d00a8;
+L_0x55c3af25a060 .arith/sub 8, v0x55c3af259900_0, v0x55c3af259830_0;
+L_0x55c3af25a130 .cmp/eq 8, v0x55c3af259790_0, L_0x7fd1538d00f0;
+L_0x55c3af25a2d0 .cmp/eq 8, v0x55c3af259790_0, L_0x7fd1538d0138;
+L_0x55c3af25a410 .cmp/eq 8, v0x55c3af259790_0, L_0x7fd1538d0180;
+L_0x55c3af25a650 .functor MUXZ 8, L_0x7fd1538d01c8, L_0x55c3af25a580, L_0x55c3af25a410, C4<>;
+L_0x55c3af25a810 .functor MUXZ 8, L_0x55c3af25a650, L_0x55c3af25a370, L_0x55c3af25a2d0, C4<>;
+L_0x55c3af25a9b0 .functor MUXZ 8, L_0x55c3af25a810, L_0x55c3af259e30, L_0x55c3af25a130, C4<>;
+L_0x55c3af25ab40 .functor MUXZ 8, L_0x55c3af25a9b0, L_0x55c3af25a060, L_0x55c3af259f40, C4<>;
+L_0x55c3af25ad40 .functor MUXZ 8, L_0x55c3af25ab40, L_0x55c3af259d90, L_0x55c3af259c50, C4<>;
+    .scope S_0x55c3af22f9a0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55c3af2596f0_0, 0, 1;
+    %pushi/vec4 7, 0, 8;
+    %store/vec4 v0x55c3af259790_0, 0, 8;
+    %pushi/vec4 2, 0, 8;
+    %store/vec4 v0x55c3af259830_0, 0, 8;
+    %pushi/vec4 3, 0, 8;
+    %store/vec4 v0x55c3af259900_0, 0, 8;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55c3af2596f0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55c3af2596f0_0, 0, 1;
+    %delay 10000, 0;
+    %load/vec4 v0x55c3af259610_0;
+    %cmpi/e 5, 0, 8;
+    %jmp/0xz  T_0.0, 6;
+    %vpi_call 2 34 "$display", "Test passed!" {0 0 0};
+    %jmp T_0.1;
+T_0.0 ;
+    %vpi_call 2 36 "$display", "Test failed. Output was: %b", v0x55c3af259610_0 {0 0 0};
+T_0.1 ;
+    %vpi_call 2 39 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbenchALU.v";
+    "ALU.v";
