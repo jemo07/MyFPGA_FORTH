@@ -5,9 +5,10 @@
 // In Verilog language, it is written as follows:
 
 module mux(sel, in0, in1, out);
-input sel;
-input [7:0] in0;
-input [7:0] in1;
-output [7:0] out;
-assign out[7:0] = (sel == 1'b0 ? in0[7:0] : in1[7:0]);
+  input sel;
+  input [31:0] in0;
+  input [31:0] in1;
+  output [31:0] out;
+  assign out[31:0] = (sel == 1'b0 ? in0[31:0] : in1[31:0]);
 endmodule
+
