@@ -12,33 +12,31 @@
 module ds(clock, mode, data_bus);
   input clock;
   input [1:0] mode;
-  inout [7:0] data_bus;
-  reg [7:0] tos;
-  reg [7:0] data[0:255];
-  reg [7:0] temp;
+  inout [31:0] data_bus;
+  reg [31:0] tos;
+  reg [31:0] data[0:255];
+  reg [31:0] temp;
   
-  assign data_bus[7:0] = temp[7:0];
+  assign data_bus[31:0] = temp[31:0];
   
   always @(posedge clock) begin
     case(mode[1:0])
       2'b00: begin
-        tos[7:0] = 8'b1111_1111;
-        temp[7:0] = 8'bzzzz_zzzz;
+        tos[31:0] = 32'b1111_1111_1111_1111_1111_1111_1111_1111;
+        temp[31:0] = 32'bzzzz_zzzz_zzzz_zzzz_zzzz_zzzz_zzzz_zzzz;
       end
       2'b01: begin
-        tos[7:0] = tos[7:0] + 1'b1;
-        data[tos[7:0]][7:0] = data_bus[7:0];
-        temp[7:0] = 8'bzzzz_zzzz;
+        tos[31:0] = tos[31:0] + 1'b1;
+        data[tos[31:0]][31:0] = data_bus[31:0];
+        temp[31:0] = 32'bzzzz_zzzz_zzzz_zzzz_zzzz_zzzz_zzzz_zzzz;
       end
       2'b10: begin
-        temp[7:0] = data[tos[7:0]][7:0];
-        tos[7:0] = tos[7:0] - 1'b1;
+        temp[31:0] = data[tos[31:0]][31:0];
+        tos[31:0] = tos[31:0] - 1'b1;
       end
       2'b11: begin
-        temp[7:0] = 8'bzzzz_zzzz;
+        temp[31:0] = 32'bzzzz_zzzz_zzzz_zzzz_zzzz_zzzz_zzzz_zzzz;
       end
     endcase
   end
 endmodule
-
-
