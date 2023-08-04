@@ -83,7 +83,7 @@ Operand if any
 Upon completion of one command, the PC moves to the next command and starts executing (execute) that command, and so on.
 
 # Instruction Set Architecture
-The whole set of instructions is as follows (oper or operand is the operand, the operation code in the table is a hexadecimal number).
+The whole set of instructions is as follows:
 
 // INSERT TABLE HERE. 
 
