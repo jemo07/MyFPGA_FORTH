@@ -87,5 +87,29 @@ The whole set of instructions is as follows (oper or operand is the operand, the
 
 // INSERT TABLE HERE. 
 
+Contents of the `ALU.v` and `CU.v` files derive the instruction set for this CPU. 
+Here's a table summarizing the instructions:
+
+| Opcode       | Instruction | Description                                                                 |
+|--------------|-------------|-----------------------------------------------------------------------------|
+| `0000 0000`  | LIT         | Pushes a literal value onto the stack.                                      |
+| `0000 0001`  | LOAD        | Loads a value from memory into the top of the stack (TOS).                  |
+| `0000 0010`  | STORE       | Stores the value from the TOS into memory.                                  |
+| `0000 0011`  | ADD         | Adds the top two values on the stack and pushes the result onto the stack.  |
+| `0000 0100`  | SUB         | Subtracts the top two values on the stack and pushes the result onto the stack. |
+| `0000 0101`  | AND         | Performs a bitwise AND on the top two values on the stack and pushes the result onto the stack. |
+| `0000 0110`  | OR          | Performs a bitwise OR on the top two values on the stack and pushes the result onto the stack.  |
+| `0000 0111`  | XOR         | Performs a bitwise XOR on the top two values on the stack and pushes the result onto the stack. |
+| `0000 1000`  | DROP        | Removes the value from the TOS.                                             |
+| `0000 1001`  | DUP         | Duplicates the value on the TOS.                                            |
+| `0000 1010`  | OVER        | Copies the second value from the top of the stack to the TOS.                |
+| `0000 1011`  | SWAP        | Swaps the top two values on the stack.                                      |
+| `0000 1100`  | IF          | Conditional branch instruction.                                             |
+| `0000 1101`  | CALL        | Calls a subroutine.                                                         |
+| `0000 1110`  | EXIT        | Returns from a subroutine.                                                  |
+| `0000 1111`  | HALT        | Halts the CPU.                                                              |
+
+These instructions provide a comprehensive set of operations for controlling the flow of the program, manipulating data on the stack, and interacting with memory. The control unit (`CU.v`) file contains the logic for decoding these instructions and generating the appropriate control signals to execute them.
+
 
 
