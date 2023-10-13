@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module ALU_tb;
+module alu_tb;
 
     reg ena;
     reg [7:0] opcode;
